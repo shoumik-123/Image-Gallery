@@ -26,10 +26,43 @@
     opacity: 1;
 }
 
-.photo:hover{
+.photo:hover, .add-photo{
     opacity: 0.8;
 }
 
 .active-photo:hover {
 opacity: 1;
+}
+
+input[type="checkbox"] {
+    margin: 4px 0 0;
+    line-height: normal;
+    width: 20px;
+    height: 20px;
+}
+
+.add-photo{
+    height: 220px;
+    width: 220px;
+    background: rgba(0, 0, 0, 0.22);
+    margin-top: 20px;
+    position: relative;
+}
+
+.add-photo div{
+    margin: 0 auto;
+
+}
+.add-photo div img{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 30%;
+    left: 38%;
+}
+.add-photo div div{
+    font-size: 20px;
+    position: absolute;
+    top: 55%;
+    left: 30%;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PhotoItem from "./PhotoItem";
 import "../assets/css/style.css"
+import UploadPhoto from "./UploadPhoto";
 
 function ShowPhoto() {
     const photo = ['image-1.webp', 'image-2.webp', 'image-3.webp', 'image-4.webp', 'image-5.webp', 'image-6.webp', 'image-7.webp', 'image-8.webp', 'image-9.webp', 'image-10.webp', 'image-11.webp', 'image-11.webp'];
@@ -64,6 +65,7 @@ function ShowPhoto() {
                                 </div>
                             </div>
                         ))}
+                        <UploadPhoto/>
                     </div>
                 </div>
             </div>
