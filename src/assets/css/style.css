@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.delete-div{
+    text-align: right;
+    padding-left: 20px;
+}
+.card{
+    box-sizing: border-box;
+    position: relative;
+}
+.form-check-input{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    opacity: 1;
+    z-index: 10000;
+}
+.photo{
+    height: 350px;
+    width: 350px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    opacity: 1;
+}
+
+.photo:hover{
+    opacity: 0.8;
+}
+
+.active-photo:hover {
+opacity: 1;
+}
