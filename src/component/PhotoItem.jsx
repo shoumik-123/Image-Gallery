@@ -1,50 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function PhotoItem({ name, id, handleCheckboxChange, active, onClick }) {
-    const [isChecked, setIsChecked] = useState(false);
-    const [scaleActive, setScaleActive] = useState(false);
-
-    const toggleCheckbox = () => {
-        setIsChecked(!isChecked);
-        handleCheckboxChange(id, !isChecked);
-    };
-
-    const photoStyle = {
-        zIndex: active ? 1000 : 0,
-        height: active ? '100%' : '80%',
-        width: active ? '100%' : '80%',
-        transform: active ? 'scale(1.5)' : 'scale(1)',
-        marginRight: active? 0 :20,
-        padding: active? 0 :20,
-    };
-
-    const handleMouseEnter = () => {
-        setScaleActive(true);
-    };
-
-    const handleMouseLeave = () => {
-        setScaleActive(false);
-    };
-
-    const handlePhotoClick = () => {
-        onClick(id);
-        setScaleActive(!scaleActive);
-    };
+function PhotoItem({ item, i, handleCheckboxChange, checkedItem }) {
+    const isChecked = checkedItem.includes(i.toString());
 
     return (
-        <div className="card">
-            <input type="checkbox" checked={isChecked} onChange={toggleCheckbox} className="form-check-input ml-2 mt-2" />
-            <img
-                src={process.env.PUBLIC_URL + `/images/${name}`}
-                alt=""
-                className={`photo ${active ? 'active-photo' : 'photo'}`}
-                onClick={() => { onClick(); handlePhotoClick(); }}
-                style={photoStyle}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}/>
+
+        <div className={`  ${isChecked ? "brightness-75" : ""} rounded-2xl hover:brightness-50`}>
+            <div className={`border rounded-2xl overflow-hidden `}>
+                <div className='rounded-2xl overflow-hidden shadow relative group w-full h-full'>
+                    <div>
+                        <input
+                            type="checkbox"
+                            value={i.toString()}
+                            checked={checkedItem.includes(i.toString())}
+                            onChange={handleCheckboxChange}
+                            className={`ml-3 mt-3 w-4 h-4 text-blue-600 bg-white border-gray-300 rounded absolute z-5 ${isChecked ? 'block' : 'hidden'} group-hover:block`}
+                        />
+                        <img
+                            src={`./images/${item}`}
+                            alt=""
+                            className="rounded-2xl w-full z-1"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
 
 export default PhotoItem;
-
